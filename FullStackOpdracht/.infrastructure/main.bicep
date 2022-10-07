@@ -10,6 +10,9 @@ param environment string = 'test'
 @description('Specifies the environment name for resources.')
 param applicationGroupId string = ''
 
+@description('Specifies the tag name for container app.')
+param tag string = 'v2'
+
 var appIdName = 'id-${application}-${environment}'
 var keyVaultName = 'kv-${application}-${environment}'
 var acrName = 'acr${application}${environment}'
@@ -69,6 +72,7 @@ module containerApp 'container.app.bicep' = {
     environmentId: containerAppEnvironment.outputs.id
     identityId: appId.id
     server:acr.outputs.loginServer
+    tag: tag
   }
 }
 

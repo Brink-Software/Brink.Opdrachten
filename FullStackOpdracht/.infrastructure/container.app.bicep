@@ -3,6 +3,7 @@ param location string
 param environmentId string
 param identityId string
 param server string
+param tag string
 
 resource nginxcontainerapp 'Microsoft.App/containerApps@2022-03-01' = {
   name: name
@@ -30,7 +31,7 @@ resource nginxcontainerapp 'Microsoft.App/containerApps@2022-03-01' = {
     template: {
       containers: [
         {
-          image: 'acrforgedemowf6edetest.azurecr.io/forgedemo:v2'
+          image: 'acrforgedemowf6edetest.azurecr.io/forgedemo:${tag}'
           name: 'forgedemo'
           resources: {
             cpu: '0.5'
