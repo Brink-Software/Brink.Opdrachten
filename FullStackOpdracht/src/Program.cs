@@ -1,8 +1,17 @@
+using Azure.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+var credentials = new DefaultAzureCredential(new DefaultAzureCredentialOptions
+{
+ExcludeVisualStudioCredential = true
+});
+
 builder.Services.AddControllersWithViews();
+builder.Configuration.AddAzureKeyVault(
+    new Uri($"https://{builder.Configuration["KeyVaultName"]}.vault.azure.net/"), credentials);
 
 var app = builder.Build();
 

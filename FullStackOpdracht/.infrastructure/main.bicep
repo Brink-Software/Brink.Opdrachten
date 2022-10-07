@@ -15,6 +15,7 @@ var keyVaultName = 'kv-${application}-${environment}'
 var acrName = 'acr${application}${environment}'
 var logName = 'log-${application}-${environment}'
 var containerEnvironmentName = 'ace-${application}-${environment}'
+var serverName = 'sql${application}${environment}'
 
 resource appId 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
   location: location
@@ -68,6 +69,17 @@ module containerApp 'container.app.bicep' = {
     environmentId: containerAppEnvironment.outputs.id
     identityId: appId.id
     server:acr.outputs.loginServer
+  }
+}
+
+module sql 'sql.bicep' = {
+  name: 'sql-server'
+  params:{
+     groupId: applicationGroupId
+     serverName: serverName
+     tenantId: appId.properties.tenantId
+     location: location
+     sqlDBName: 'FullstackOpdracht'
   }
 }
 

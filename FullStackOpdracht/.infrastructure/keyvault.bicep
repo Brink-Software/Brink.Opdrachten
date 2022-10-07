@@ -22,6 +22,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-10-01' = {
           secrets: [ 
             'get'
             'list' 
+            'set'
           ]
         }
       }
@@ -41,6 +42,7 @@ resource accessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2021-10-01' = 
           secrets: [ 
             'get'
             'list' 
+            'set'
           ]
         }
       } ]
