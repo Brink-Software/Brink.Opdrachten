@@ -18,7 +18,7 @@ builder.Configuration.AddAzureKeyVault(
 
 ```
 
-Met de credentials kan jij ook een SqlConnection open.
+Met de credentials kan jij ook een SqlConnection open hieronder een voorbeeld van hoe dat zou kunnen.
 ```cs
 app.MapGet("api/sql", async () =>
 {
