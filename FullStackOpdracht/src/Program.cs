@@ -11,10 +11,10 @@ var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions
 {
     ExcludeVisualStudioCredential = true
 });
-
-builder.Services.AddControllersWithViews();
 builder.Configuration.AddAzureKeyVault(
     new Uri($"https://{builder.Configuration["KeyVaultName"]}.vault.azure.net/"), credential);
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -28,11 +28,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
-app.MapGet("api/secret", (IConfiguration configuration) =>
-{
-    return configuration["ForgeClientId"];
-});
 
 
 app.MapGet("api/sql", async () =>
