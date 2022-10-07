@@ -69,7 +69,7 @@ De applicatie kan gebouwd en gedeployed worden met de volgende commands:
 $tag = "<tag>"
 cd src
 az acr build -r acrforgedemowf6edetest -t forgedemo:$tag .
-az deployment group create -g rg-fullstackopdracht -f ../.infrastructure/main.bicep --parameters ../.infrastructure/parameters.json
+az deployment group create -g rg-fullstackopdracht -f ../.infrastructure/main.bicep --parameters ../.infrastructure/parameters.json --parameters tag=$tag
 ```
 
 ## De Opdracht
