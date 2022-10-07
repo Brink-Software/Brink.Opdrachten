@@ -1,0 +1,9 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "applicationGroupId": {
+          "value": "a67cdc02-8947-4e5f-ac3b-ac25a6d94698"
+      }
+    }
+  }
