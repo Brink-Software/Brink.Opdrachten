@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+FullStackOpdracht/src/.gitignore
+.DS_Store
+FullStackOpdracht/.DS_Store
+FullStackOpdracht/.DS_Store
